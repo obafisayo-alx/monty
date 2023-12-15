@@ -7,7 +7,6 @@ void _parsefp(line_t *line, char *buffer);
 /**
  * parsefp - parse the file being read from the file ptr fp one line at a time
  * @fp: file pointer of the file to be read
- * 
  * Return: void
 */
 void parsefp(FILE *fp)
@@ -42,6 +41,12 @@ void parsefp(FILE *fp)
 	free(data);
 }
 
+/**
+ * -parsefp - helper function
+ * @line: line
+ * @buffer: buffer
+ * Return: void
+*/
 void _parsefp(line_t *line, char *buffer)
 {
 	size_t i;
