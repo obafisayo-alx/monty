@@ -10,7 +10,7 @@
  */
 void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 {
-	size_t i;
+	unsigned int i;
 	instruction_t options[] = {
 		{"push", push},
 		{"pall", pall},
@@ -23,6 +23,7 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"div", divop},
 		{"mul", mulop},
 		{"mod", modop},
+		{"stack", addst},
 		{NULL, NULL}
 	};
 
