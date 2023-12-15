@@ -68,4 +68,6 @@ typedef struct data_s
 void parsefp(FILE *file);
 void _parsefp(line_t *line, char *buffer);
 
+void free_stack(stack_t **stack);
+
 #endif
