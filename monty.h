@@ -89,6 +89,7 @@ void push_check(line_t line, data_t *data, char *opcode);
 bool args_check(char *token);
 
 void push(stack_t **stack, unsigned int nline);
+void pall(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 
 #endif

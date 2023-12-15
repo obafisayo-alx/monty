@@ -13,6 +13,7 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 	size_t i;
 	instruction_t options[] = {
 		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 	};
 	i = 0;
