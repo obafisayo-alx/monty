@@ -11,7 +11,7 @@ void _parsefp(line_t *line, char *buffer);
 */
 void parsefp(FILE *fp)
 {
-	size_t n = 0, i = 0;
+	size_t n = 0;
 	data_t *data = NULL;
 	line_t line;
 
@@ -19,7 +19,6 @@ void parsefp(FILE *fp)
 	if (!data)
 	{
 		fprintf(stderr, "Error: malloc failed");
-		free(data->buff);
 		exit(EXIT_FAILURE);
 	}
 	line.line = NULL;
@@ -35,7 +34,6 @@ void parsefp(FILE *fp)
 		{
 			get_option(line, data)(&(data->stack), line.line_no);
 		}
-		free(line.line);
 	}
 	free(data->buff);
 	free_stack(&(data->stack));
@@ -52,7 +50,6 @@ void _parsefp(line_t *line, char *buffer)
 	if (!line->line)
 	{
 		fprintf(stderr, "Error: malloc failed");
-		free(line->line);
 		exit(EXIT_FAILURE);
 	}
 	token = strtok(buffer, " '\n'");
