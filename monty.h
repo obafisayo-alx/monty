@@ -72,21 +72,23 @@ typedef struct data_s
  * 
  * Description: contains extern arguments
 */
-typedef struct externalarg_s
+typedef struct arg_s
 {
-	int args;
+	int arg;
 	int flag;
-} externalarg_t;
+} arg_t;
 
-extern externalarg_t arg;
+extern arg_t arg;
 
 void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int);
+int _isalpha(int c);
 
 void parsefp(FILE *file);
 void _parsefp(line_t *line, char *buffer);
 
 void push_check(line_t line, data_t *data, char *opcode);
 bool args_check(char *token);
+bool comment_check(line_t line);
 
 void push(stack_t **stack, unsigned int nline);
 void pall(stack_t **stack, unsigned int nline);
@@ -96,6 +98,10 @@ void addop(stack_t **stack, unsigned int nline);
 void swap(stack_t **stack, unsigned int nline);
 void nop(stack_t **stack, unsigned int nline);
 void addst(stack_t **stack, unsigned int nline);
+void subop(stack_t **stack, unsigned int nline);
+void divop(stack_t **stack, unsigned int nline);
+void mulop(stack_t **stack, unsigned int nline);
+void modop(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 
 #endif

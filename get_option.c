@@ -10,7 +10,7 @@
  */
 void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 {
-	size_t i;
+	unsigned int i;
 	instruction_t options[] = {
 		{"push", push},
 		{"pall", pall},
@@ -19,15 +19,22 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", addop},
 		{"nop", nop},
+		{"sub", subop},
+		{"div", divop},
+		{"mul", mulop},
+		{"mod", modop},
+		{"stack", addst},
 		{NULL, NULL}
 	};
 
 	i = 0;
+	if (comment_check(line))
+		return (nop);
 	while (options[i].opcode)
 	{
 		if (strcmp(options[i].opcode, line.line[0]) == 0)
 		{
-			push_check(line, data, options[1].opcode);
+			push_check(line, data, options[i].opcode);
 			if (arg.flag == 1 &&
 			strcmp(options[i].opcode, "push") == 0)
 			{

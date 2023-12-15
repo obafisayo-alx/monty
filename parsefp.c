@@ -13,7 +13,6 @@ void _parsefp(line_t *line, char *buffer);
 void parsefp(FILE *fp)
 {
 	size_t n = 0;
-	ssize_t cread;
 	data_t *data = NULL;
 	line_t line;
 
@@ -28,8 +27,7 @@ void parsefp(FILE *fp)
 	data->fp = fp;
 	data->buff = NULL;
 	data->stack = NULL;
-	cread = getline(&(data->buff), &n, data->fp);
-	while (cread != -1)
+	while (getline(&(data->buff), &n, data->fp) != -1)
 	{
 		line.line_no = line.line_no + 1;
 		_parsefp(&line, data->buff);
