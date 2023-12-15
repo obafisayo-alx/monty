@@ -14,7 +14,7 @@ int main(int ac, char *av[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	fp = open(av[1], "r");
+	fp = fopen(av[1], "r");
 	if (!fp)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
