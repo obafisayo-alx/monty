@@ -65,9 +65,30 @@ typedef struct data_s
 	stack_t *stack;
 } data_t;
 
+/**
+ * struct externalarg_s - exter arguments
+ * @flag: argument 2
+ * @args: argument 1
+ * 
+ * Description: contains extern arguments
+*/
+typedef struct externalarg_s
+{
+	int args;
+	int flag;
+} externalarg_t;
+
+extern externalarg_t arg;
+
+void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int);
+
 void parsefp(FILE *file);
 void _parsefp(line_t *line, char *buffer);
 
+void push_check(line_t line, data_t *data, char *opcode);
+bool args_check(char *token);
+
+void push(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 
 #endif

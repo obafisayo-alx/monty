@@ -38,7 +38,6 @@ void parsefp(FILE *fp)
 		}
 		free(line.line);
 	}
-	printf("%d", line.line_no);
 	free(data->buff);
 	free_stack(&(data->stack));
 	fclose(data->fp);
