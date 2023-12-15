@@ -110,7 +110,6 @@ void pop(stack_t **stack, unsigned int nline)
 /**
  * free_stack - frees all the nodes in a stack
  * @stack: pointer to the first node of the stack
- * 
  * Return: void
 */
 void free_stack(stack_t **stack)
@@ -125,5 +124,5 @@ void free_stack(stack_t **stack)
 		free(*stack);
 		*stack = temp;
 	}
-	
+
 }
