@@ -31,7 +31,7 @@ bool args_check(char *token)
 /**
  * push_check - check if push opcode is being used and sets global
  * argument variable if true
- * @line: struct containing line contents and line number
+ * @line: struct containing line lines and line number
  * @opcode: the opcode to compare
  * @data: struct containing all allocated memory
  *
@@ -51,4 +51,27 @@ void push_check(line_t line, data_t *data, char *opcode)
 	}
 	else if (strcmp(opcode, "push") == 0)
 		arg.args = atoi(line.line[1]);
+}
+
+/**
+ * comment_check - checks if line is a comment
+ * @line: struct containing line lines and line number
+ *
+ * Return: true if comment, else false
+ */
+bool comment_check(line_t line)
+{
+	if (!line.line[0])
+	{
+		free(line.line);
+		return (true);
+	}
+
+	if (line.line[0][0] == '#')
+	{
+		free(line.line);
+		return (true);
+	}
+
+	return (false);
 }

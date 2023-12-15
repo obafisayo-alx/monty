@@ -19,10 +19,16 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", addop},
 		{"nop", nop},
+		{"sub", subop},
+		{"div", divop},
+		{"mul", mulop},
+		{"mod", modop},
 		{NULL, NULL}
 	};
 
 	i = 0;
+	if (comment_check(line))
+		return (nop);
 	while (options[i].opcode)
 	{
 		if (strcmp(options[i].opcode, line.line[0]) == 0)
