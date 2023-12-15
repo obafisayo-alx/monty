@@ -65,4 +65,7 @@ typedef struct data_s
 	stack_t *stack;
 } data_t;
 
+void parsefp(FILE *file);
+void _parsefp(line_t *line, char *buffer);
+
 #endif
