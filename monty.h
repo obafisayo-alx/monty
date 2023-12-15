@@ -90,6 +90,7 @@ bool args_check(char *token);
 
 void push(stack_t **stack, unsigned int nline);
 void pall(stack_t **stack, unsigned int nline);
+void pint(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 
 #endif

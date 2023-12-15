@@ -33,8 +33,7 @@ void parsefp(FILE *fp)
 		_parsefp(&line, data->buff);
 		if (line.line)
 		{
-			for (i = 0; line.line[i] != NULL; i++)
-				printf("%s ", line.line[i]);
+			get_option(line, data)(&(data->stack), line.line_no);
 		}
 		free(line.line);
 	}
