@@ -1,6 +1,6 @@
 #include "monty.h"
 
-externalarg_t arg = {0, 0};
+arg_t arg = {0, 0};
 
 /**
  * argument_check - verifies argument is valid
@@ -50,7 +50,7 @@ void push_check(line_t line, data_t *data, char *opcode)
 		exit(EXIT_FAILURE);
 	}
 	else if (strcmp(opcode, "push") == 0)
-		arg.args = atoi(line.line[1]);
+		arg.arg = atoi(line.line[1]);
 }
 
 /**

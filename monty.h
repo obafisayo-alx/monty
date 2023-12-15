@@ -72,13 +72,13 @@ typedef struct data_s
  * 
  * Description: contains extern arguments
 */
-typedef struct externalarg_s
+typedef struct arg_s
 {
-	int args;
+	int arg;
 	int flag;
-} externalarg_t;
+} arg_t;
 
-extern externalarg_t arg;
+extern arg_t arg;
 
 void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int);
 int _isalpha(int c);
