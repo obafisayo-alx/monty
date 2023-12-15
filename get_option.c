@@ -16,6 +16,9 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
+		{"add", addop},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 

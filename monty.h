@@ -92,6 +92,9 @@ void push(stack_t **stack, unsigned int nline);
 void pall(stack_t **stack, unsigned int nline);
 void pint(stack_t **stack, unsigned int nline);
 void pop(stack_t **stack, unsigned int nline);
+void addop(stack_t **stack, unsigned int nline);
+void swap(stack_t **stack, unsigned int nline);
+void nop(stack_t **stack, unsigned int nline);
 void addst(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 
