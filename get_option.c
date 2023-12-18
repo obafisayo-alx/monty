@@ -18,17 +18,17 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", addop},
-		{"nop", nop},
 		{"sub", subop},
 		{"div", divop},
 		{"mul", mulop},
 		{"mod", modop},
+		{"nop", nop},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotlop},
+		{"rotr", rotrop},
 		{"stack", addst},
 		{"queue", addqu},
-		{"rotl", rotl},
-		{"rotr", rotr},
 		{NULL, NULL}
 	};
 
@@ -45,6 +45,7 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 			{
 				if (line.line)
 					free(line.line);
+				return (qpush);
 			}
 			free(line.line);
 			return (options[i].f);
