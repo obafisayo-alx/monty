@@ -62,29 +62,25 @@ void pstr(stack_t **stack, unsigned int nline)
 */
 void rotl(stack_t **stack, unsigned int nline)
 {
-	stack_t *temp;
-	int hold_this, hold_this_again;
+	int hold_this;
 	(void)nline;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || *stack == NULL || !((*stack)->next))
 	{
 		nop(stack, nline);
+		return;
 	}
 
 	hold_this = (*stack)->n;
-	temp = *stack;
 
-	while (temp)
-	{
-		if (temp->next == NULL)
-			break;
+	stack_t *temp = *stack;
+	while (temp->next)
 		temp = temp->next;
-	}
 
-	hold_this_again = temp->n;
-	(*stack)->n = hold_this_again;
+	(*stack)->n = temp->n;
 	temp->n = hold_this;
 }
+
 
 /**
  * rotr - rotates the stack to the bottom.
