@@ -8,13 +8,30 @@
 */
 void pchar(stack_t **stack, unsigned int nline)
 {
-	if (!stack || !(*stack))
+	char c;
+	stack_t *temp;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", nline);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	while (temp)
+	{
+		if (temp->prev == NULL)
+			break;
+		temp = temp->prev;
+	}
+
+	c = temp->n;
+	if (_isalpha(temp->n) == 0)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", nline);
 		exit(EXIT_FAILURE);
 	}
-	if (_isalpha((*stack)->n))
-		printf("%c\n", (*stack)->n);
+	printf("%c\n", c);
 }
 
 /**
@@ -28,11 +45,6 @@ void pstr(stack_t **stack, unsigned int nline)
 	stack_t *temp;
 	(void)nline;
 
-	if (!stack || !(*stack))
-	{
-		fprintf(stderr, "\n");
-		return;
-	}
 	temp = *stack;
 	while (temp != NULL && temp->n != 0 && _isalpha(temp->n))
 	{
@@ -53,10 +65,9 @@ void rotl(stack_t **stack, unsigned int nline)
 	stack_t *temp, *node;
 	(void)nline;
 
-	if (!stack || !(*stack) || !((*stack)->next))
+	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "\n");
-		return;
+		nop(stack, nline);
 	}
 	temp = node = *stack;
 	*stack = (*stack)->next;
