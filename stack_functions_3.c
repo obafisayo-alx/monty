@@ -62,33 +62,28 @@ void pstr(stack_t **stack, unsigned int nline)
 */
 void rotl(stack_t **stack, unsigned int nline)
 {
-	stack_t *temp, *node;
+	stack_t *temp;
+	int hold_this, hold_this_again;
 	(void)nline;
 
 	if (stack == NULL || *stack == NULL)
 	{
 		nop(stack, nline);
-		return;
 	}
 
-	temp = node = *stack;
-	*stack = (*stack)->next;
+	hold_this = (*stack)->n;
+	temp = *stack;
 
-	if (!temp->next)
+	while (temp)
 	{
-		temp->next = node;
-		node->next = NULL;
-		node->prev = temp;
+		if (temp->next == NULL)
+			break;
+		temp = temp->next;
 	}
-	else
-	{
-		while (temp->next)
-			temp = temp->next;
 
-		temp->next = node;
-		node->next = NULL;
-		node->prev = temp;
-	}
+	hold_this_again = temp->n;
+	(*stack)->n = hold_this_again;
+	temp->n = hold_this;
 }
 
 /**
