@@ -26,6 +26,7 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"stack", addst},
+		{"queue", addqu},
 		{"rotl", rotl},
 		{"rotr", rotr},
 		{NULL, NULL}

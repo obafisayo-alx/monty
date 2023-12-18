@@ -62,6 +62,7 @@ void pstr(stack_t **stack, unsigned int nline)
 */
 void rotl(stack_t **stack, unsigned int nline)
 {
+	stack_t *temp;
 	int hold_this;
 	(void)nline;
 
@@ -73,7 +74,7 @@ void rotl(stack_t **stack, unsigned int nline)
 
 	hold_this = (*stack)->n;
 
-	stack_t *temp = *stack;
+	temp = *stack;
 	while (temp->next)
 		temp = temp->next;
 
