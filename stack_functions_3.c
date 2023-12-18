@@ -68,14 +68,27 @@ void rotl(stack_t **stack, unsigned int nline)
 	if (stack == NULL || *stack == NULL)
 	{
 		nop(stack, nline);
+		return;
 	}
+
 	temp = node = *stack;
 	*stack = (*stack)->next;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = node;
-	node->next = NULL;
-	node->prev = temp;
+
+	if (!temp->next)
+	{
+		temp->next = node;
+		node->next = NULL;
+		node->prev = temp;
+	}
+	else
+	{
+		while (temp->next)
+			temp = temp->next;
+
+		temp->next = node;
+		node->next = NULL;
+		node->prev = temp;
+	}
 }
 
 /**
@@ -91,7 +104,7 @@ void rotr(stack_t **stack, unsigned int nline)
 
 	if (!stack || !(*stack) || !((*stack)->next))
 	{
-		fprintf(stderr, "\n");
+		nop(stack, nline);
 		return;
 	}
 	temp = *stack;
@@ -103,5 +116,3 @@ void rotr(stack_t **stack, unsigned int nline)
 	(*stack)->prev = temp;
 	*stack = temp;
 }
-
-
