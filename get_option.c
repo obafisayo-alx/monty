@@ -23,7 +23,11 @@ void (*get_option(line_t line, data_t *data))(stack_t **, unsigned int)
 		{"div", divop},
 		{"mul", mulop},
 		{"mod", modop},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{"stack", addst},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 
