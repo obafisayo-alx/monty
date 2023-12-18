@@ -26,6 +26,7 @@ void pchar(stack_t **stack, unsigned int nline)
 void pstr(stack_t **stack, unsigned int nline)
 {
 	stack_t *temp;
+	(void)nline;
 
 	if (!stack || !(*stack))
 	{
@@ -50,6 +51,7 @@ void pstr(stack_t **stack, unsigned int nline)
 void rotl(stack_t **stack, unsigned int nline)
 {
 	stack_t *temp, *node;
+	(void)nline;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 	{
@@ -74,6 +76,7 @@ void rotl(stack_t **stack, unsigned int nline)
 void rotr(stack_t **stack, unsigned int nline)
 {
 	stack_t *temp;
+	(void)nline;
 
 	if (!stack || !(*stack) || !((*stack)->next))
 	{
