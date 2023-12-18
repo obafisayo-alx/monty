@@ -102,6 +102,10 @@ void subop(stack_t **stack, unsigned int nline);
 void divop(stack_t **stack, unsigned int nline);
 void mulop(stack_t **stack, unsigned int nline);
 void modop(stack_t **stack, unsigned int nline);
+void pchar(stack_t **stack, unsigned int nline);
+void pstr(stack_t **stack, unsigned int nline);
+void rotl(stack_t **stack, unsigned int nline);
+void rotr(stack_t **stack, unsigned int nline);
 void free_stack(stack_t **stack);
 
 #endif

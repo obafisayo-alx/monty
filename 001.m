@@ -1,13 +1,16 @@
+<<<<<<< HEAD
 <<<<<<<
 push 1
 push 2
 push 3
 pint
 =======
+=======
+>>>>>>> 8502feeb95dd8e4ee8cd0002aa631ab770578d6d
 push 1 
 push 2 
 push 3 
-push 2 
-push 3 
-pint
->>>>>>> c70746ddd7dbf0ae2a04ff39aab9fa3b5db3675a
+push 4 
+push 5 
+rotr 
+pall 
